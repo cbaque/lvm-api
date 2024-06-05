@@ -127,9 +127,5 @@ class AuthController extends Controller
         } catch (\Exception $ex) {
             return response_data(null, Response::HTTP_BAD_REQUEST , $ex->getMessage() );
         }
-
-
-
-
     }
 }

@@ -16,8 +16,8 @@ class MenuSeeder extends Seeder
             [
                 'name' => "Archivos",
                 'link' => "files",
-                'icon' => "",
-                'tab' => false,
+                'icon' => "FileOutlined",
+                'tab' => true,
                 'selected' => false
             ],
         );
@@ -26,8 +26,8 @@ class MenuSeeder extends Seeder
             [
                 'name' => "Documentos",
                 'link' => "documents",
-                'icon' => "",
-                'tab' => false,
+                'icon' => "CloudUploadOutlined",
+                'tab' => true,
                 'selected' => false
             ],
         );
@@ -36,8 +36,8 @@ class MenuSeeder extends Seeder
             [
                 'name' => "Tipos Estudios",
                 'link' => "type-study",
-                'icon' => "",
-                'tab' => false,
+                'icon' => "FileOutlined",
+                'tab' => true,
                 'selected' => false
             ],
         );
@@ -46,7 +46,7 @@ class MenuSeeder extends Seeder
             [
                 'name' => "Pacientes",
                 'link' => "patients",
-                'icon' => "",
+                'icon' => "SisternodeOutlined",
                 'tab' => false,
                 'selected' => false
             ],
@@ -56,7 +56,7 @@ class MenuSeeder extends Seeder
             [
                 'name' => "Usuarios",
                 'link' => "users",
-                'icon' => "",
+                'icon' => "UserAddOutlined",
                 'tab' => false,
                 'selected' => false
             ],
