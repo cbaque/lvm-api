@@ -23,4 +23,9 @@ class Business extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    public function files()
+    {
+        return $this->hasMany(File::class);
+    }
 }

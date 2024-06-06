@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use App\Models\Business;
+use App\Models\File;
 
 class FileController extends Controller
 {
@@ -11,7 +14,16 @@ class FileController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            $user = auth()->user();
+            $userBusiness = Business::find($user->business_id);
+
+            $filesBusiness = $userBusiness->files()->get();
+
+            return response_data($filesBusiness, Response::HTTP_OK, 'Archivos Leídos correctamente.', true);
+        } catch (\Exception $ex) {
+            return response_data([], Response::HTTP_BAD_REQUEST, 'Error al procesar la petición');
+        }
     }
 
     /**
@@ -27,7 +39,24 @@ class FileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $request->validate([
+                'description' => 'required',
+            ]);
+
+            $user = auth()->user();
+            $userBusiness = Business::find($user->business_id);
+
+            $newFile = new File();
+            $newFile->business_id = $userBusiness->id;
+            $newFile->description = $request->description;
+            $newFile->save();
+
+            return response_data($newFile, Response::HTTP_CREATED, 'Archivo creado correctamente.', true);
+
+        } catch (\Exception $ex) {
+            return response_data([], Response::HTTP_BAD_REQUEST, 'Error al procesar la petición');
+        }
     }
 
     /**
