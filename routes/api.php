@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\FileController;
+use App\Http\Controllers\TypeController;
+use App\Http\Controllers\PatientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +30,7 @@ Route::resource('auth', AuthController::class);
 Route::group(['middleware' => ['auth:api'] ], function () {
     Route::resource('user', UserController::class);
     Route::resource('role', RoleController::class);
+    Route::resource('file', FileController::class);
+    Route::resource('type', TypeController::class);
+    Route::resource('patient', PatientController::class);
 });
